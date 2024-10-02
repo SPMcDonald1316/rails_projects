@@ -13,6 +13,7 @@ gem "jbuilder"
 gem "puma", ">= 5.0"
 gem "bootsnap", require: false
 gem "pg", "~> 1.1"
+gem "rubocop", "~> 1.66", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
