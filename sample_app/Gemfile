@@ -15,6 +15,7 @@ gem "puma", ">= 5.0"
 gem "bootsnap", require: false
 gem "pg", "~> 1.1"
 gem "rubocop", "~> 1.66", require: false
+gem "faker", "~> 3.5"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
@@ -33,3 +34,4 @@ group :test do
   gem "guard", "~> 2.18"
   gem "guard-minitest", "~> 2.4"
 end
+
