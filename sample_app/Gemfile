@@ -26,6 +26,7 @@ group :developement, :test do
   gem "rubocop-rails"
   gem "rubocop-minitest"
   gem "rubocop-capybara"
+  gem "rubocop-shopify", require: false
   gem "debug", "1.5.0", platforms: %i[ mri mingw x64_mingw ]
 end
 
