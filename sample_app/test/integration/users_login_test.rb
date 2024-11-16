@@ -80,7 +80,7 @@ class RememberingTest < UsersLogin
   
   test "login with remembering" do
     log_in_as(@user)
-    assert_not cookies[:remember_token].blank?
+    assert_equal cookies[:remember_token], assigns(:user).remember_token
   end
 
   test "login without remembering" do
@@ -88,6 +88,6 @@ class RememberingTest < UsersLogin
     log_in_as(@user)
     # Log in again and verify that the cookie is deleted
     log_in_as(@user, remember_me: '0')
-    assert cookies[:remember_token].blank?
+    assert_empty cookies[:remember_token]
   end
 end
