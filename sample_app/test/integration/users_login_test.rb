@@ -6,10 +6,10 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
-  test "invalid log in information" do
+  test "log in with valid email/invalid password" do
     get login_path
     assert_template "sessions/new"
-    post login_path, params: { session: { email: "", password: "" } }
+    post login_path, params: { session: { email: @user.email, password: "invalid" } }
     assert_response :unprocessable_entity
     assert_template "sessions/new"
     assert_not flash.empty?
@@ -18,12 +18,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   end
 
   test "login with valid information" do
-    post login_path, params: {
-      session: {
-        email: @user.email,
-        password: 'password'
-      }
-    }
+    post login_path, params: { session: { email: @user.email, password: 'password' } }
     assert_redirected_to @user
     follow_redirect!
     assert_template "users/show"
